@@ -1,0 +1,107 @@
+// 1. queryDsl version 정보 추가
+buildscript {
+	ext {
+		queryDslVersion = "5.0.0"
+	}
+}
+
+
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '2.7.14'
+	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+	id "com.ewerk.gradle.plugins.querydsl" version "1.0.10"
+
+}
+
+group = 'com.api'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	sourceCompatibility = '11'
+}
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
+
+	compileOnly 'org.projectlombok:lombok'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	runtimeOnly 'com.mysql:mysql-connector-j'
+	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+	testImplementation 'org.springframework.security:spring-security-test'
+	// https://mvnrepository.com/artifact/nz.net.ultraq.thymeleaf/thymeleaf-layout-dialect
+	implementation group: 'nz.net.ultraq.thymeleaf', name: 'thymeleaf-layout-dialect'
+	implementation 'org.springframework.boot:spring-boot-starter-web-services'
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+
+
+
+	testImplementation 'org.springframework.security:spring-security-test'	//
+	// https://mvnrepository.com/artifact/nz.net.ultraq.thymeleaf/thymeleaf-layout-dialect
+	implementation group: 'nz.net.ultraq.thymeleaf', name: 'thymeleaf-layout-dialect'
+	// queryDSL 추가
+	implementation "com.querydsl:querydsl-jpa:${queryDslVersion}"
+	implementation "com.querydsl:querydsl-apt:${queryDslVersion}"
+
+	implementation 'org.webjars:webjars-locator-core'
+
+	implementation 'org.webjars:sockjs-client:1.0.2'
+
+	implementation 'org.webjars:stomp-websocket:2.3.3'
+
+	implementation 'org.springframework.boot:spring-boot-starter-websocket'
+
+	// mock 테스트 추가
+	testImplementation "org.mockito:mockito-core:3.3.3"
+
+	testCompileOnly "org.projectlombok:lombok"
+	testAnnotationProcessor "org.projectlombok:lombok"
+}
+
+def querydslDir = "$buildDir/generated/querydsl"
+// JPA 사용 여부와 사용할 경로를 설정
+querydsl {
+	jpa = true
+	querydslSourcesDir = querydslDir
+}
+// build 시 사용할 sourceSet 추가
+sourceSets {
+	main.java.srcDir querydslDir
+}
+// querydsl 컴파일시 사용할 옵션 설정
+compileQuerydsl{
+	options.annotationProcessorPath = configurations.querydsl
+}
+// querydsl 이 compileClassPath 를 상속하도록 설정
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+	querydsl.extendsFrom compileClasspath
+
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}

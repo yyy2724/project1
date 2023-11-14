@@ -1,0 +1,264 @@
+@import url(/css/common/reset.css);
+@import url(/css/common/header.css);
+@import url(/css/common/footer.css);
+
+*{box-sizing: border-box;}
+
+.container{
+    width: 100%;
+    min-height: calc(100vh - 250px);
+}
+
+.container-con{
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+    /* border: 1px solid; */
+}
+
+.container-con .detail{
+    flex-basis: 1050px;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+    /* border: 1px solid; */
+}
+
+.container-con .detail .detail-con{
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.container-con .detail .detail-con .detail-header{
+    width: 100%;
+    display: flex;
+justify-content: center;
+}
+
+
+.container-con .detail .detail-con .detail-header .sechead{
+    box-sizing: border-box;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    font-size: 16px;
+    padding: 10px;
+    border-bottom: 2px solid rgb(51, 51, 51);
+}
+
+.container-con .detail .detail-con .detail-container{
+    padding: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    gap: 50px;
+}
+
+.container-con .detail .detail-con .detail-container .left{
+    flex: 1;
+    height: 450px;
+    padding: 0 0 0 150px;
+}
+
+.left .left-bottom{
+
+    display: flex;
+    justify-content: space-between;
+    gap:10px;
+}
+
+.left .left-bottom .update{
+    flex: 1;
+}
+
+.left .left-bottom .update button{
+    width: 100%;
+    height: 30px;
+    margin-top: 8px;
+    border: 1px solid purple;
+    background-color: purple;
+    color: white;
+    font-weight: bold;
+}
+
+.left .left-bottom .delete{
+    flex: 1;
+}
+
+.left .left-bottom .delete button{
+    width: 100%;
+    height: 30px;
+    margin-top: 8px;
+    border: 1px solid purple;
+    background-color: purple;
+    color: white;
+    font-weight: bold;
+}
+
+.container-con .detail .detail-con .detail-container .right{
+    height: 450px;
+    flex: 2;
+    padding: 0 20px;
+}
+
+.container-con .detail .detail-con .detail-container .right .sec1{
+    color: #cccccc;
+    font-size: 14px;
+    margin-bottom: 6px;
+}
+
+.container-con .detail .detail-con .detail-container .right .sec2{
+    color: #333333;
+    font-size: 24px;
+    margin-right: 20px;
+}
+
+.container-con .detail .detail-con .detail-container .right .sec3{
+    color: #333333;
+    font-size: 28px;
+    font-weight: 800;
+    margin: 5px 20px 5px 0;
+}
+
+.sec4>ul{
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+}
+
+.sec4>ul>li{
+    display: flex;
+    justify-content: flex-start;
+    border-bottom: 1px solid #cccccc;
+    padding: 10px 0;
+
+}
+
+.sec4>ul>li span{
+    flex: 1.5;
+    color: #333333;
+}
+
+.sec4>ul>li p{
+    flex: 5;
+    color: #333333;
+    padding-left: 5px;
+}
+
+
+.sec4>ul>li:nth-child(4) .select2>button{
+    width: 20px;
+    background-color: white;
+    color: #333333;
+    border: 0;
+    font-weight: bold;
+    text-align: end;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.sec4>ul>li:nth-child(4) .select2 input{
+    width: 25px;
+    border: 0;
+    font-weight: bold;
+    text-align: end;
+    font-size: 20px;
+}
+
+.sec4>ul>li:nth-child(5) span{
+    flex: 3;
+    text-align: start;
+    font-size: 24px;
+    font-weight: bold;
+    color: purple;
+}
+
+.sec4>ul>li:nth-child(5) div{
+    flex: 5;
+    text-align: end;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.sec4>ul button{
+    width: 100%;
+    height: 30px;
+    border: 1px solid purple;
+    background-color: purple;
+    color: white;
+    font-weight: bold;
+}
+
+.detail-reply{
+    width: 100%;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    padding: 5px 10px;
+}
+
+.detail-reply .reply-con{
+    width: 70%;
+    padding: 0 10px;
+}
+
+.detail-reply .reply-con .reply-header{
+    width: 705px;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    border-bottom: 2px solid #333333;
+}
+
+
+.detail-reply .reply-con .reply-list{
+    width: 100%;
+}
+.detail-reply .reply-con .reply-list table tr{
+    font-size: 18px;
+    font-weight: 800;
+    text-align: center;
+}
+
+.detail-reply .reply-con .reply-list table tr th:nth-child(1){
+    padding: 1px 5px;
+}
+
+.detail-reply .reply-con .reply-list table tr th:nth-child(2){
+    padding: 1px 222px;
+}
+
+.detail-reply .reply-con .reply-list table tr th:nth-child(3){
+    padding: 1px 0 0 10px;
+}
+
+.detail-reply .reply-con .reply-list table tr th:nth-child(4){
+    padding: 1px 0 0 30px;
+}
+
+.detail-reply .reply-con .reply-write{
+    width: 50%;
+}
+
+.detail-reply .reply-con .reply-write h3{
+    padding: 5px;
+}
+
+.detail-reply .reply-con .reply-write ul>li:nth-child(1) textarea{
+    height: auto;
+    text-align: start;
+    align-items: center;
+}
+
+.detail-reply .reply-con .reply-write ul>li:nth-child(2) input:nth-child(2){
+    border: 1px solid purple;
+    border-radius: 4px;
+    background-color: purple;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+

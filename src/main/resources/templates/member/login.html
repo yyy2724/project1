@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/kurlylayout}"
+>
+
+
+<th:block layout:fragment="title">
+    <title>로그인</title>
+</th:block>
+
+<th:block layout:fragment="css">
+    <link rel="stylesheet" th:href="@{/css/member/login.css}">
+</th:block>
+
+<th:block layout:fragment="script">
+<!--    <script th:src="@{/js/index.js}" defer ></script>-->
+</th:block>
+
+<th:block layout:fragment="container">
+    <div class="container">
+        <div class="container-con">
+            <div class="login">
+                <div class="login-con">
+                    <div class="login-form">
+                        <h1>로그인</h1>
+                        <form th:action="@{/member/login}" method="post">
+                            <ul>
+                                <li>
+                                    <input type="text" name="email" id="email" placeholder="  아이디를 입력해주세요"
+                                           onfocus="this.placeholder=''" onblur="this.placeholder='  아이디를 입력해주세요'"
+                                           >
+                                </li>
+                                <li>
+                                    <input type="password" name="password" id="password" placeholder="  비밀번호를 입력해주세요"
+                                           onfocus="this.placeholder=''" onblur="this.placeholder='  비밀번호를 입력해주세요'">
+                                </li>
+                                
+                                <li>
+                                    <input type="submit" value="로그인">
+                                </li>
+                                <li>
+                                    <button type="button" onclick="location.href='join'">회원가입</button>
+                                </li>
+                                <li class="oauth-login">
+                                    <a th:href="@{/oauth2/authorization/google}"><img th:src="@{/images/oauth2/google.png}" alt="google"></a>
+                                    <a th:href="@{/oauth2/authorization/kakao}"><img th:src="@{/images/oauth2/kakao.jpg}" alt="kakao"></a>
+                                    <a th:href="@{/oauth2/authorization/naver}"><img th:src="@{/images/oauth2/naver.jpg}" alt="naver"></a>                                </li>
+                            </ul>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</th:block>
+</html>

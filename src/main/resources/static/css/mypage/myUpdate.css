@@ -1,0 +1,135 @@
+@import url(/css/common/reset.css);
+@import url(/css/common/header.css);
+@import url(/css/common/footer.css);
+
+.container{
+    width: 100%;
+    height: auto;
+}
+
+.container-con{
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+    /* border: 1px solid; */
+}
+
+.container-con .myUpdate{
+    flex-basis: 500px;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+    /* border: 1px solid; */
+}
+
+.container-con .myUpdate .myUpdate-con{
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.container-con .myUpdate .myUpdate-con .myUpdate-header{
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-size: 16px;
+    padding: 10px;
+}
+
+.container-con .myUpdate .myUpdate-con .myUpdate-header2{
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px 0;
+    gap: 2px;
+    border-bottom: 2px solid rgb(51, 51, 51);
+}
+
+
+
+.container-con .myUpdate .myUpdate-con{
+    width: 100%;
+}
+
+.container-con .myUpdate .myUpdate-con>ul{
+    box-sizing: border-box;
+    padding: 7px 12px;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 2px solid rgb(51, 51, 51);
+}
+
+.container-con .myUpdate .myUpdate-con>ul>li{
+    box-sizing: border-box;
+    padding: 10px 1px;
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+    align-items: center;
+}
+
+.container-con .myUpdate .myUpdate-con>ul>li>label{
+    flex: 1;
+    font-weight: bold;
+    padding: 10px 3px;
+}
+
+
+.container-con .myUpdate .myUpdate-con>ul>li>input{
+    flex: 3;
+    padding: 10px 3px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+}
+
+.container-con .myUpdate .myUpdate-con>ul>li>button{
+    flex: 1;
+    border: 1px solid purple;
+    border-radius: 4px;
+    background-color: white;
+    text-align: center;
+    color: purple;
+    padding: 10px 3px;
+}
+
+
+.container-con .myUpdate .myUpdate-con .go-myUpdate{
+    display: flex;
+    justify-content: center;
+    padding: 20px 0 0 0;
+}
+
+.container-con .myUpdate .myUpdate-con>div{
+    flex-basis: 500px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.container-con .myUpdate .myUpdate-con .go-myUpdate button:nth-child(1){
+    width: 150px;
+    height: 40px;
+    border: 1px solid purple;
+    border-radius: 2px;
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    font-weight: bold;
+}
+.container-con .myUpdate .myUpdate-con .go-myUpdate button{
+    width: 150px;
+    height: 40px;
+    border: 1px solid purple;
+    border-radius: 2px;
+    background-color: purple;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+
+
+
+

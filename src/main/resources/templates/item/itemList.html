@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/kurlylayout}"
+>
+
+
+<th:block layout:fragment="title">
+    <title>상품목록</title>
+</th:block>
+
+<th:block layout:fragment="css">
+    <link rel="stylesheet" th:href="@{/css/item/itemList.css}">
+</th:block>
+
+<th:block layout:fragment="script">
+    <!--    <script th:src="@{/js/index.js}" defer ></script>-->
+</th:block>
+
+<th:block layout:fragment="container">
+    <div class="container">
+        <div class="container-con">
+            <div class="itemList">
+                <div class="itemList-con">
+                    <div class="itemList-header">
+                        <h1>신 상 품</h1>
+                    </div>
+                    <div class="search">
+                        <div class="search-con">
+                        <form th:action="@{/member/search}" method="get">
+                            <select name="member_search_opt" id="member_search_opt">
+                                <option value="name">상품명</option>
+                                <option value="email">카테고리</option>
+                            </select>
+                            <input type="text" name="member_search" id="member_search" th:value="${param.search}">
+                            <input type="submit" value="검색">
+                        </form>
+                        </div>
+                    </div>
+
+                    <div class="itemList-container">
+                        <div class="sec1">
+                            <ul>
+                                <li th:each="item:${itemList}">
+                                    <a th:href="@{/}">
+                                        <div class="itemImg">
+                                            <!--                                        <img th:src="${item.isFile}" alt="상품이미지">-->
+                                            <img th:src="@{http://placehold.it/200x300}" alt="대체이미지">
+                                        </div>
+
+                                        <div class="itemName">
+                                            <!--                                        <span th:text=${item.name} ></span>-->
+                                            <span th:text="${item.name}"></span>
+                                        </div>
+
+                                        <div class="itemPrice">
+                                            <!--                                        <span th:text=${item.price} ></span>-->
+                                            <span th:text="${item.price}"></span>
+                                        </div>
+
+                                        <div class="itemDetail-con">
+                                            <div class="itemDetail">
+                                                <button type="button" th:href="@{/item/itemDetail}">상세보기</button>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+<!--                                <li>-->
+<!--                                    <a th:href="@{/}">-->
+<!--                                        <div class="itemImg">-->
+<!--&lt;!&ndash;                                        <img th:src="${item.isFile}" alt="상품이미지">&ndash;&gt;-->
+<!--                                            <img th:src="@{http://placehold.it/200x300}" alt="대체이미지">-->
+<!--                                        </div>-->
+
+<!--                                        <div class="itemName">-->
+<!--&lt;!&ndash;                                        <span th:text=${item.name} ></span>&ndash;&gt;-->
+<!--                                            <span>상품명</span>-->
+<!--                                        </div>-->
+<!--                                        -->
+<!--                                        <div class="itemPrice">-->
+<!--&lt;!&ndash;                                        <span th:text=${item.price} ></span>&ndash;&gt;-->
+<!--                                            <span>10000원</span>-->
+<!--                                        </div>-->
+
+<!--                                        <div class="itemDetail-con">-->
+<!--                                            <div class="itemDetail">-->
+<!--                                                <button type="button" th:href="@{/item/itemDetail}">상세보기</button>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </a>-->
+<!--                                </li>-->
+                            </ul>
+                        </div>
+                    
+                        <!-- <table>
+                            <thead>
+                                <tr class="th1">
+                                    <th colspan="8">등록상품목록</th>
+                                </tr>
+                                <tr class="th2">
+                                    <th>상품번호</th>
+                                    <th>상품사진</th>
+                                    <th>상품명</th>
+                                    <th>가격</th>
+                                    <th>MENU</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr th:each="item:${itemList}">
+                                    <td th:text="${item.id}"></td>
+                                    <td th:text="${item.isFile}"></td>
+                                    <td th:text="${item.name}"></td>
+                                    <td th:text="${item.price}"></td>
+                                    <td>
+                                        <a th:href="@{/item/delete}">삭제</a>
+                                        <a th:href="@{/item/update}">수정</a>
+                                        <a th:href="@{/item/item/{id}(id=${item.id})}">상세보기</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table> -->
+                        <div class="paging">
+                            <ul>
+                                <li>
+                                    <!--페이징 보류  -->
+<!--                                    <span th:if="${1==itemList.pageable.pageNumber+1}"></span>-->
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</th:block>
+</html>

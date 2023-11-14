@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+</head>
+<body>
+
+<span th:text="'id : '+${member.id}"></span> <br>
+<span th:text="'email : '+${member.email}"></span> <br>
+<span th:text="'phone : '+${member.phone}"></span> <br>
+<span th:text="'role : '+${member.role}"></span> <br>
+<span th:text="'address : '+${member.address}"></span> <br>
+<span th:text="'City : '+${member.address.City}"></span> <br>
+<span th:text="'street : '+${member.address.street}"></span> <br>
+<span th:text="'zipcode : '+${member.address.zipcode}"></span> <br>
+<sapn th:text="'createTime : '+${member.createTime}"></sapn> <br>
+<span th:text="'updateTime : '+${member.updateTime}"></span> <br>
+<a th:href="@{/member/delete}">삭제</a> <br>
+<a th:href="@{/member/update}">수정</a> <br>
+<a th:href="@{/member/detail/{id}(id=${member.id})}">상세보기</a> <br>
+
+<!--<span th:text="${member.id}"></span>-->
+<!--<span th:text="${member.email}"></span>-->
+<!--<span th:text="${member.phone}"></span>-->
+<!--<span th:text="${member.address}"></span>-->
+<!--<sapn th:text="${member.createTime}"></sapn>-->
+<!--<span th:text="${member.updateTime}"></span>-->
+<!--<a th:href="@{/member/delete}">삭제</a>-->
+<!--<a th:href="@{/member/update}">수정</a>-->
+<!--<a th:href="@{/member/detail/{id}(id=${member.id})}">상세보기</a>-->
+
+</body>
+</html>

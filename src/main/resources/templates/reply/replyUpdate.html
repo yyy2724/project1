@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/kurlyLayout}"
+>
+<th:block layout:fragment="title">
+    <title>memberDetail</title>
+</th:block>
+<th:block layout:fragment="css">
+    <link rel="stylesheet" th:href="@{/css/reply/replyDetail.css}">
+</th:block>
+<th:block layout:fragment="javascript">
+    <!--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>-->
+    <script th:src="@{/js/detail.js}" defer></script>
+</th:block>
+<th:block layout:fragment="container">
+    <div class="container">
+        <div class="detail">
+            <div class="detail-con">
+                <div class="detail-con-header">
+                    <div class="sec1">
+                        <h1>공지사항</h1>
+                        <h4>컬리의 새로운 소식들과 유용한 정보들을 한곳에서 확인하세요</h4>
+                    </div>
+                </div>
+                <div class="detail-con-form">
+                    <form th:action="@{/reply/update}" method="post">
+                        <ul>
+                            <input type="hidden" readonly name="postId" th:value="${replySave.getPost().getId()}" >
+                            <input type="hidden" readonly name="memberId" th:value=1>
+                            <li>
+                                <label th:for="id">댓글번호</label>
+                                <input type="text" id="id" name="id" th:value="${replySave.id}" readonly>
+                                <!--                                <input type="text" id="id" name="id" readonly>-->
+                            </li>
+                            <li>
+                                <label th:for="content">내용</label>
+                                <input type="text" id="content" name="content" th:value="${replySave.content}" >
+                                <!--                                <input type="text" id="title" name="title" readonly>-->
+                            </li>
+
+                            <li>
+                                <label th:for="writer">작성자</label>
+                                <input type="text" id="writer" name="writer" th:value="${replySave.writer}" readonly>
+                                <!--                                <input type="text" id="writer" name="writer" readonly>-->
+                            </li>
+
+                            <li>
+                                <label>작성일</label>
+
+                                <label for="createTime">createTime</label>
+                                <label th:if="${replySave.createTime} == null" th:for="updateTime">
+                                    <input type="text" id="updateTime" name="updateTime"
+                                           th:value="${#temporals.format(replySave.updateTime,'yyyy-MM-dd HH:mm')}" readonly>
+                                </label>
+
+                                <label th:unless="${replySave.createTime} == null" th:for="createTime">
+                                    <input type="text" id="createTime" name="createTime"
+                                           th:value="${#temporals.format(replySave.createTime,'yyyy-MM-dd HH:mm')}" readonly>
+                                </label>
+
+                            </li>
+
+                        </ul>
+                        <div class="sec2">
+                            <input type="submit" value="수정완료">
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</th:block>
+</html>

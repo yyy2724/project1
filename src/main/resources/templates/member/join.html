@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/kurlylayout}"
+>
+
+
+<th:block layout:fragment="title">
+    <title>로그인</title>
+</th:block>
+
+<th:block layout:fragment="css">
+    <link rel="stylesheet" th:href="@{/css/member/join.css}">
+</th:block>
+
+<th:block layout:fragment="script">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script th:src="@{/js/member/join.js}" defer></script>
+</th:block>
+
+<th:block layout:fragment="container">
+    <div class="container">
+        <div class="container-con">
+            <div class="join">
+                <div class="join-con">
+                    <div class="join-header">
+                        <h1>회원가입</h1>
+                    </div>
+                    
+                    <div class="join-header2">
+                        <span>*</span>
+                         <span>필수입력사항</span>
+                    </div>
+
+                    <form th:action="@{/member/join}" method="post" name="joinForm">
+                        <ul>
+                            <li>
+                                <label th:for="email">
+                                    이메일
+                                    <span>*</span>
+                                </label>
+                                <input type="email" id="id" name="id" th:field="*{member.email}" placeholder=" 아이디를 입력해주세요">
+                                <span class="error_next_box" id="idMsg" style="display:none" aria-live="assertive"></span>
+                                <button type="button" id="emailCheckedBtn" class="emailCheckedBtn">중복확인</button>
+                            </li>
+
+<!--                            <span class="error_next_box" id="idMsg" style="display:none" aria-live="assertive"></span>-->
+
+                            <li>
+                                <label th:for="password">
+                                    비밀번호
+                                    <span>*</span>
+                                </label>
+                                <input type="password" th:field="*{member.password}" placeholder=" 비밀번호를 입력해주세요">
+                                <div></div>
+                            </li>
+                            <li>
+                                <label th:for="name">
+                                    이름
+                                    <span>*</span>
+                                </label>
+                                <input type="text" th:field="*{member.name}" placeholder=" 이름을 입력해주세요">
+                                <div></div>
+                            </li>
+                            
+                            <li>
+                                <label th:for="phone">
+                                    휴대폰
+                                    <span>*</span>
+                                </label>
+                                <input type="text" th:field="*{member.phone}" placeholder=" 숫자만 입력해주세요">
+                                <div></div>
+                            </li>
+                            <li>
+                                <label th:for="city">
+                                    주소
+                                    <span>*</span>
+                                </label>
+                                <input type="text" id="city" th:field="*{member.address.City}" placeholder=" 주소를 입력해주세요">
+                                <div></div>
+                            </li>
+                        </ul>
+                        <div class="go-join">
+                            <input type="submit" value="가입하기" id="joinCheckedBtn">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</th:block>
+</html>

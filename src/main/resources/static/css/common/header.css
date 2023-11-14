@@ -1,0 +1,467 @@
+/* Header */
+
+/* TOP-HEADER START */
+.header{
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    position: sticky;
+    top:0;
+    z-index:999;
+    background-color:white;
+    padding :5px 0;
+}
+
+.header .header-con{
+    width: 100%;
+    height: auto;
+    /* border: 1px solid; */
+    box-sizing: border-box;
+    flex-basis: 1050px;
+}
+
+.header .header-con .top-header{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.header .header-con .top-header>ul{
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    /* border: 1px solid; */
+    box-sizing: border-box;
+}
+
+.header .header-con .top-header>ul>li{
+    font-weight: bold;
+    padding: 5px 10px 5px 0px;
+    position: relative;
+}
+
+.header .header-con .top-header>ul>li:nth-child(2) a{
+    color: purple;
+}
+
+.header .header-con .top-header>ul>li>a{
+    font-weight: bold;
+    padding: 5px 5px 5px 0px;
+    line-height: 16px;
+}
+
+.header .header-con .top-header>ul>li:not(:last-child)::after{
+    content: '';
+    display: block;
+    width: 1px;
+    height: 75%;
+    background-color: #cccccc;
+    position: absolute;
+    right: 7.5px;
+    top:50%;
+    transform: translateY(-50%);
+}
+
+.header .header-con .top-header>ul>li:last-child::after{
+    content: '▼';
+    display: block;
+    width: 12px;
+    height: 60%;
+    position: absolute;
+    right: 2px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* --------------------------------------------------------- */
+/* login-member-bar */
+/* 로그인 전 후로 li:nth-child(2) 지정된게 바뀜 */
+.header .header-con .top-header>ul>li:nth-child(2) {
+    display: inline-block;
+    width: auto;
+    vertical-align: top;
+
+    text-align: center;
+    font-size: 12px;
+
+    position: relative;
+}
+
+
+.header .header-con .top-header a.userid>span {
+    color: #000000;
+    /* border: 1px solid #cccccc; */
+}
+
+
+/* .header .header-con .top-header>ul>li:nth-child(3):hover > .member-bar {
+
+    display: block;
+} */
+
+.header .header-con .top-header>ul>li:hover > .member-bar{
+    width: 100px;
+
+    display: block;
+    position: absolute;
+
+    z-index : 3;
+
+    justify-content: center;
+}
+.header .header-con .top-header .member-bar {
+    display: none;
+    background-color:#ffffff;
+
+    border: 1px solid #cccccc;
+
+    box-sizing: border-box;
+}
+.header .header-con .top-header >ul>li > .member-bar a {
+    color: #000000;
+    display: block;
+    padding: 4px 4px;
+
+    box-sizing: border-box;
+
+}
+
+.header .header-con .top-header >ul>li > .member-bar a .span {
+
+}
+/* --------------------------------------------------------- */
+
+
+/* TOP-HEADER END */
+
+/* ======================================================== */
+
+
+/* MIDDLE-HEADER START */
+.header .header-con .middle-header{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 0px;
+    box-sizing: border-box;
+
+    /*
+        position: relative;
+        display: inline-block;
+     */
+
+}
+
+.header .header-con .middle-header .left{
+    flex:1.1;
+    display: flex;
+    justify-content: flex-start;
+    /* border: 1px solid; */
+    box-sizing: border-box;
+    padding : 7px 0 0 0 ;
+}
+
+.header .header-con .middle-header .left>ul{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+.header .header-con .middle-header .left>ul>li{
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 35px;
+    padding: 0 5px 0 0;
+    box-sizing: border-box;
+}
+
+.header .header-con .middle-header .left>ul>li:nth-child(2) a{
+    position: relative;
+    padding: 0 5px 0 0;
+    color:purple;
+}
+
+.header .header-con .middle-header .left>ul>li:nth-child(2) a::after{
+    position: absolute;
+    content: '';
+    width: 1px;
+    background-color: #cccccc;
+    display: block;
+    height: 80%;
+    right: -6.5px;
+    top: 60%;
+    transform: translateY(-50%);
+}
+
+.header .header-con .middle-header .left>ul>li:nth-child(3) a{
+    position: relative;
+    color :#cccccc;
+}
+
+.header .header-con .middle-header .left>ul>li:nth-child(3) a::after{
+    position: absolute;
+    content: 'N';
+    font-size:12px;
+    width:0px;
+    color: red;
+    display: block;
+    height: 10%;
+    right: 0px;
+    top: -13px;
+    transform: translateY(0%);
+}
+
+.header .header-con .middle-header .left>ul>li:nth-child(3) a:hover{
+    color:purple;
+}
+
+
+.header .header-con .middle-header .left>ul>li>a>img{
+    width: 80px;
+    height: 40px;
+}
+
+.header .header-con .middle-header .middle{ 
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.header .header-con .middle-header .middle form{
+    flex-basis: 400px;
+    height: auto;
+    border: 1px solid purple;
+    border-radius: 10px;
+    box-sizing: border-box;
+    display: flex;
+    padding: 7px 7px;
+    gap : 10px;
+}
+
+.header .header-con .middle-header .middle form input{
+    vertical-align: middle;
+    outline: none;
+}
+
+.header .header-con .middle-header .middle form input:nth-child(1){
+    flex: 7;
+    border: 0px;
+    font-size:17px;
+    /* font-weight: bold; */
+    height: 37px;
+    box-sizing: border-box;
+    padding: 0 0 0 10px;
+}
+
+.header .header-con .middle-header .middle form button{
+    flex: 0.7;
+    background: url(/css/images/search.png) no-repeat 50%/cover;
+    border: 0;
+    height: 37px;
+    width: 30px;
+    cursor: pointer;
+}
+
+/* midle right */
+
+.header .header-con .middle-header .right{
+    flex: 1;
+
+    display: flex;
+
+    justify-content: flex-end;
+
+}
+
+.header .header-con .middle-header .right>ul{
+    display: flex;
+    justify-content: center;
+    /* border: 1px solid; */
+}
+
+.header .header-con .middle-header .right>ul{
+    flex-basis: 100px;
+    display: flex;
+    justify-content: space-between;
+    gap: 25px;
+    box-sizing: border-box;
+}
+
+.header .header-con .middle-header .right>ul>li{
+    width: 30px;
+    height: 37px;
+    padding: 7px 0 0 0;
+
+                position: relative;
+                display: inline-block;
+
+}
+
+
+.header .header-con .middle-header .right .address-bar {
+    display: none;
+    position: absolute;
+
+    border: 1px solid #cccccc;
+    background-color: #ffffff;
+
+    top: 55%;
+    right: 15%;
+
+    width: 250px;
+    height: 100px;
+
+    z-index : 2;
+
+}
+
+
+.header .header-con .middle-header .right>ul>li:hover + .address-bar {
+    display: block;
+}
+
+.header .header-con .middle-header .right .address-bar > span {
+    padding: 10px;
+}
+
+/* ======================================================== */
+
+
+/* ======================================================== */
+
+/* middle-Header END */
+
+
+
+/* ======================================================== */
+
+
+
+/* Bottom-HEADER START */
+
+.header .header-con .bottom-header{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    /* border: 1px solid; */
+    box-sizing: border-box;
+}
+
+.header .header-con .bottom-header .bottom-left{
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+    /* border: 1px solid; */
+    box-sizing: border-box;
+    align-items : center;
+    font-size : 16px;
+    /* font-weight : bold */
+}
+
+.header .header-con .bottom-header .bottom-left span{
+    align-items :center;
+    display: flex;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    padding : 0 0 0 10px;
+    gap : 5px;
+}
+
+.header .header-con .bottom-header .bottom-left span:hover{
+    transition : 0.1s;
+    color : purple;
+    cursor : pointer;
+    font-size : 18px;
+}
+
+.header .header-con .bottom-header .bottom-left span img{
+    width : 30px;
+    height:auto;
+    display: flex;
+    box-sizing: border-box;
+}
+
+.category-sec1{
+    position: relative;
+    display: inline-block;
+}
+
+.category-sec1 .category{
+    width: 250px;
+
+    display: none;
+    position: absolute;
+    z-index: 99;
+
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+}
+
+.category-sec1 .category a{
+    width:auto;
+
+    display: block;
+    text-align: left;
+    font-size: 18px;
+    margin: 10px;
+}
+
+.category-sec1 .category a:hover{
+    color: purple;
+}
+
+.category-sec1:hover .category{
+    display: block;
+}
+
+.header .header-con .bottom-header .bottom-middle{
+    flex: 4;
+    width:100%;
+    /* border: 1px solid; */
+    box-sizing: border-box; 
+    align-items: center;
+}
+
+.header .header-con .bottom-header .bottom-middle>ul{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    box-sizing: border-box;
+    font-size: 16px;
+    /* font-weight: bold; */
+    padding : 4px 0px 0 0;
+}
+
+.header .header-con .bottom-header .bottom-middle>ul>li>a:hover{
+    color:purple;
+    text-decoration:underline;
+    cursor : pointer;
+    font-weight : bold;
+}
+
+.header .header-con .bottom-header .bottom-right{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    /* border: 1px solid; */
+    box-sizing: border-box;
+    align-items:center;
+
+}
+
+.header .header-con .bottom-header .bottom-right a{
+
+    font-size : 14px;
+    padding :1px 10px;
+    border : 1px solid #cccccc;
+    border-radius : 15px;
+}
+
+.header .header-con .bottom-header .bottom-right a .inner span:nth-child(1){
+    color:purple;
+}
+/* Bottom-Header End */

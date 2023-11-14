@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+      layout:decorate="~{layout/kurlylayout}"
+>
+
+<th:block layout:fragment="title">
+    <title>고객센터</title>
+</th:block>
+
+<th:block layout:fragment="css">
+    <link rel="stylesheet" th:href="@{/css/post/postList.css}">
+    <link rel="stylesheet" th:href="@{/css/chat/chat-bot.css}">
+</th:block>
+
+<th:block layout:fragment="script">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script th:src="@{/webjars/sockjs-client/sockjs.min.js}" defer></script>
+    <script th:src="@{/webjars/stomp-websocket/stomp.min.js}" defer></script>
+    <script th:src="@{/js/chat.js}" defer></script>
+
+</th:block>
+
+<th:block layout:fragment="container">
+    <div class="container">
+        <div class="container-con">
+            <div class="customer-op">
+                <div class="sec1-title">
+                    고객센터
+                </div>
+                <div class="sec2-op">
+                    <ul>
+                        <li>
+                            <button type="button">
+                                <a th:href="@{/}">
+                                    <ul>
+                                        <li>공지사항</li>
+                                        <li><img th:src="@{/images/arrow_r.png}" alt="이동"></li>
+                                    </ul>
+                                </a>
+                            </button>
+                        </li>
+                        <li>
+                            <button type="button">
+                                <a th:href="@{/chat}">
+                                    <ul>
+                                        <li>리 뷰</li>
+                                        <li><img th:src="@{/images/arrow_r.png}" alt="이동"></li>
+                                    </ul>
+                                </a>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+                <div class="sec3-help">
+                    <button type="button">
+                        <a th:href="@{/chat}">
+                            <div class="a-sec1">
+                                <ul>
+                                    <li>
+                                        도움이 필요하신가요?
+                                    </li>
+                                    <li>
+                                        1:1문의하기
+                                    </li>
+                                </ul>
+                            </div>
+                        </a>
+                    </button>
+                </div>
+            </div>
+            <div class="postList">
+                <div class="postList-con">
+
+                    <div class="postList-header">
+                        <h1>공지사항</h1>
+                        <h4>컬리의 새로운 소식들과 유용한 정보들을한곳에서 확인해 보세요 </h4>
+                    </div>
+
+                    <div class="search">
+                        <div class="search-con">
+                            <form th:action="@{/post/postList}" method="get" class="search1">
+                                <select name="subject" id="subject">
+                                    <option value="title">제목</option>
+                                    <option value="content">내용</option>
+                                    <option value="writer">작성자</option>
+                                </select>
+                                <input type="text" name="search" id="search" th:value="${param.search}">
+                                <input type="submit" value="검색">
+                            </form>
+
+                        </div>
+
+                        <div class="insert-button">
+                            <th:block sec:authorize="hasAnyRole('ADMIN')">
+                                <form th:action="@{/post/postInsert}" method="get" class="insert">
+                                    <input type="submit" value="글작성" class="insert2">
+                                </form>
+                            </th:block>
+                        </div>
+
+                    </div>
+
+                    <div class="postList-container">
+                        <table>
+                            <thead>
+                            <tr class="th2">
+                                <th>ID</th>
+                                <th>제목</th>
+                                <th>닉네임</th>
+                                <th>조회수</th>
+                                <th>이메일</th>
+                                <th>작성시간</th>
+                                <th>자세히</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="post:${postList}">
+                                <td th:text="${post.id}"></td>
+                                <td th:text="${post.title}"></td>
+                                <!-- <td th:text="${post.content}"></td> -->
+                                <td th:text="${post.writer}"></td>
+                                <td th:text="${post.hit}"></td>
+                                <td th:text="${post.member.email}"></td>
+
+                                <!-- 글 수정하면 updateTime이 보이게 하기 -->
+                                <td th:if="${post.createTime} == null"
+                                    th:text="${#temporals.format(post.upDateTime,'yyyy-MM-dd HH:mm')}"></td>
+                                <td th:unless="${post.createTime} == null"
+                                    th:text="${#temporals.format(post.createTime,'yyyy-MM-dd HH:mm')}"></td>
+                                <td>
+                                    <a th:href="@{/post/postDetail/{id}(id=${post.id})}">글보기</a> <!-- 수정 페이지 이동 -->
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+
+                        <div class="paging">
+                            <ul>
+                                <li>
+                                    <!--페이징 보류  -->
+                                    <!--                                    <span th:if="${1==postList.pageable.pageNumber+1}"></span>-->
+                                    <!-- 현재페이지가 첫번째 페이지이면 span표시 -->
+                                    <span th:if="${1==postVo.pageable.pageNumber+1}" class="span0">START</span>
+                                    <!-- 처음 페이지가 아니면 처음(누를시 1페이지로) -->
+                                    <span th:unless="${1==postVo.pageable.pageNumber+1}">
+                                    <a th:href="@{/post/postList(page=0,search=${param.search} ,subject=${param.subject})}"
+                                       class="span1">처음</a>
+                                    </span>
+                                </li>
+
+                                <li>
+                                    <!-- 첫페이지 일때 -->
+                                    <span th:if="${1==postVo.pageable.pageNumber+1}" class="span0">Pre</span>
+                                    <span th:unless="${1==postVo.pageable.pageNumber+1}">
+                                        <a th:href="@{/post/postList(page=${postVo.pageable.pageNumber-1},search=${param.search} ,subject=${param.subject})}"
+                                           class="span1">이전</a>
+                                     </span>
+                                </li>
+
+
+                                <li th:each="i : ${#numbers.sequence(startPage, endPage)}" class="block">
+                                    <span th:if="${i == postVo.pageable.pageNumber+1}" th:text="${i}"
+                                          class="now"></span>
+
+                                    <a th:unless="${i == postVo.pageable.pageNumber+1}"
+                                       th:href="@{/post/postList(page=${i - 1},search=${param.search} ,subject=${param.subject})}"
+                                       th:text="${i}"></a>
+                                </li>
+
+                                <li>
+                                    <span th:if="${postVo.totalPages == postVo.pageable.pageNumber + 1}" class="span0">NEXT</span>
+
+                                    <span th:unless="${postVo.totalPages == postVo.pageable.pageNumber + 1}">
+                            <a th:href="@{/post/postList(page=${postVo.pageable.pageNumber + 1},search=${param.search} ,subject=${param.subject} )}"
+                               class="span1">다음</a>
+                        </span>
+                                </li>
+
+
+                                <li>
+                                    <span th:if="${postVo.totalPages == postVo.pageable.pageNumber + 1}" class="span0">END</span>
+
+                                    <span th:unless="${postVo.totalPages == postVo.pageable.pageNumber+1}">
+                            <a th:href="@{/post/postList(page=${postVo.totalPages}-1,search=${param.search} ,subject=${param.subject})}"
+                               class="span1">마지막</a>
+                        </span>
+                                </li>
+
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</th:block>
+</html>

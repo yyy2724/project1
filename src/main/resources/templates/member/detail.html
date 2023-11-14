@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/kurlylayout}"
+>
+<th:block layout:fragment="title">
+    <title>memberDetail</title>
+</th:block>
+<th:block layout:fragment="css">
+    <link rel="stylesheet" th:href="@{/css/member/detail.css}">
+</th:block>
+<th:block layout:fragment="javascript">
+<!--      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>-->
+<!--    <script th:src="@{/js/detail.js}" defer></script>-->
+</th:block>
+<th:block layout:fragment="container">
+    <div class="container">
+        <div class="detail">
+            <div class="detail-con">
+                <div class="detail-form">
+                    <h1>Member detail</h1>
+                    <form th:action="@{/member/update}" method="post">
+                    <ul>
+                        <li>
+                            <label th:for="id">id</label>
+                            <input type="text" th:field="*{member.id}" th:value="${member.id}" readonly
+                                   class="readonly">
+                        </li>
+                        <input type="hidden" th:field="*{member.password}" th:value="${member.password}">
+                        <li>
+                            <label th:for="email">email</label>
+                            <input type="email" th:field="*{member.email}" th:value="${member.email}" readonly
+                                   class="readonly">
+                        </li>
+                        <li>
+                            <label th:for="name">name</label>
+                            <input type="text" th:field="*{member.name}" th:value="${member.name}" readonly
+                                   class="readonly">
+                        </li>
+                        <li>
+                            <label th:for="phone">phone</label>
+                            <input type="text" th:field="*{member.phone}" th:value="${member.phone}">
+                        </li>
+                        <li>
+                            <label th:for="role">role</label>
+                            <th:block sec:authorize="hasAnyRole('ADMIN')">
+                                <input type="text" th:field="*{member.role}" th:value="${member.role}">
+                            </th:block>
+                            <th:block sec:authorize="hasAnyRole('USER','SELLER','OAUTH')">
+                                <input type="text" th:field="*{member.role}" th:value="${member.role}" readonly
+                                       class="readonly">
+                            </th:block>
+                        </li>
+                        <li>
+                            <label th:for="createTime">createTime</label>
+                            <input type="text" th:field="*{member.createTime}" th:value="${member.createTime}" readonly
+                                   class="readonly">
+                        </li>
+                        <li>
+                            <label th:for="updateTime">updateTime</label>
+                            <input type="text" th:field="*{member.updateTime}" th:value="${member.updateTime}" readonly
+                                   class="readonly">
+                        </li>
+                        <li class="show">
+                            <a th:href="@{/member/delete/{id}(id=${member.id})}">삭제</a>
+<!--                            <input type="submit" value="삭제">-->
+                            <input type="submit" value="수정">
+<!--                                              <a th:href="@{/member/delete}">삭제</a>-->
+<!--                                              <a th:href="@{/member/update}">수정</a>-->
+<!--                            <a href="#" id="deleteBtn">삭제</a>-->
+<!--                            <a href="#" id="updateBtn">수정</a>-->
+                            <th:block sec:authorize="hasAnyRole('ADMIN')">
+                                <a th:href="@{/member/memberList}">목록</a>
+                            </th:block>
+                        </li>
+                    </ul>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</th:block>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/kurlylayout}">
+
+<th:block layout:fragment="css">
+    <link rel="stylesheet" th:href="@{/css/chat/chat-bot.css}">
+</th:block>
+
+<th:block layout:fragment="script">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script th:src="@{/webjars/sockjs-client/sockjs.min.js}"></script>
+    <script th:src="@{/webjars/stomp-websocket/stomp.min.js}"></script>
+    <script th:src="@{/js/chat.js}"></script>
+</th:block>
+
+<th:block layout:fragment="container">
+    <div class="postList">
+        <div class="postList-con">
+
+            <div class="chat">
+                <div id="chat-bot">
+                    <div class="wrap">
+                        <button type="button" id="btn-chat-open" onclick="openChat()">
+                            여기를 클릭해 주세요!
+                        </button>
+                        <dl id="chat-disp">
+                            <dt id="chat-header">
+                                <span>온라인 채팅 상담</span>
+                                <span class="btn-wrap">
+                        <button type="button" id="btn-chat-close" onclick="disconnect()">X</button>
+                    </span>
+                            </dt>
+                            <dd id="chat-content">
+
+                            </dd>
+                            <dd id="chat-question" class="flex between">
+                                <span class="flex column center"><i></i></span>
+                                <input type="text" id="question" placeholder="질문을 입력하세요.">
+                                <button type="button" id="btn-msg-send" onclick="msgSendClickFn()">전송</button>
+                            </dd>
+                        </dl>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</th:block>
+</html>

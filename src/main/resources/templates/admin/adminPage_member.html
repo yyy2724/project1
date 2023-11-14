@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/kurlylayout}"
+>
+
+
+<th:block layout:fragment="title">
+    <title>관리자페이지</title>
+</th:block>
+
+<th:block layout:fragment="css">
+    <link rel="stylesheet" th:href="@{/css/admin/adminPage_member.css}">
+</th:block>
+
+<th:block layout:fragment="script">
+    <!--    <script th:src="@{/js/index.js}" defer ></script>-->
+</th:block>
+
+<th:block layout:fragment="container">
+    <div class="container">
+        <div class="container-con">
+            <div class="customer-op">
+                <div class="sec1-title">
+                    관리자 메뉴
+                </div>
+                <div class="sec2-op">
+                    <ul>
+                        <li>
+                            <button type="button">
+                                <a th:href="@{/}">
+                                    <ul>
+                                        <li>공지사항</li>
+                                        <li><img th:src="@{/images/arrow_r.png}" alt="이동"></li>
+                                    </ul>
+                                </a>
+                            </button>
+                        </li>
+                        <li>
+                            <button type="button">
+                                <a th:href="@{/}">
+                                    <ul>
+                                        <li>회원 관리</li>
+                                        <li><img th:src="@{/images/arrow_r.png}" alt="이동"></li>
+                                    </ul>
+                                </a>
+                            </button>
+                        </li>
+                        <li>
+                            <button type="button">
+                                <a th:href="@{/}">
+                                    <ul>
+                                        <li>상품 관리</li>
+                                        <li><img th:src="@{/images/arrow_r.png}" alt="이동"></li>
+                                    </ul>
+                                </a>
+                            </button>
+                        </li>
+                        <li>
+                            <button type="button">
+                                <a th:href="@{/}">
+                                    <ul>
+                                        <li>리 뷰</li>
+                                        <li><img th:src="@{/images/arrow_r.png}" alt="이동"></li>
+                                    </ul>
+                                </a>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+                <div class="sec3-help">
+                    <button type="button">
+                        <a th:href="@{/}">
+                            <div class="a-sec1">
+                                <ul>
+                                    <li>
+                                        도움이 필요하신가요?
+                                    </li>
+                                    <li>
+                                        1:1문의하기
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="a-sec2">
+                                <img th:src="@{/images/arrow_r.png}" alt="이동">
+                            </div>
+                        </a>
+                    </button>
+                </div>
+            </div>
+            <div class="postList">
+                <div class="postList-con">
+
+                    <div class="postList-header">
+                        <h1>관리자 페이지</h1>
+                        <h3>회원관리</h3>
+                        <div class="insert">
+                            <button><a th:href="@{/post/postInsert}">공지사항 작성</a></button>
+                        </div>
+                    </div>
+
+                    <div class="search">
+                        <div class="search-con">
+                            <form th:action="@{/member/search}" method="get">
+                                <select name="member_search_opt" id="member_search_opt">
+                                    <option value="title">제목</option>
+                                    <option value="writer">작성자</option>
+                                    <option value="createTime">작성일</option>
+                                </select>
+                                <input type="text" name="member_search" id="member_search" th:value="${param.search}">
+                                <input type="submit" value="검색">
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="postList-container">
+                        <table>
+                            <thead>
+                            <tr class="th2">
+                                <th>번호</th>
+                                <th>이름</th>
+                                <th>이메일</th>
+                                <th>전화번호</th>
+                                <th>주소</th>
+                                <th>MENU</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="member:${memberList}">
+                                <td th:text="${member.id}"></td>
+                                <td th:text="${member.name}"></td>
+                                <td th:text="${member.email}"></td>
+                                <td th:text="${member.phone}"></td>
+                                <td th:text="${member.city}"></td>
+                                <td>
+                                    <a th:href="@{/post/delete}">삭제</a>
+                                    <a th:href="@{/post/update}">수정</a>
+                                    <a th:href="@{/post/detail/{id}(id=${member.id})}">상세보기</a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <div class="paging">
+                            <ul>
+                                <li>
+                                    <!--페이징 보류  -->
+                                    <!--                                    <span th:if="${1==postList.pageable.pageNumber+1}"></span>-->
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</th:block>
+</html>

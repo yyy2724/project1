@@ -1,0 +1,193 @@
+@import url(/css/common/reset.css);
+@import url(/css/common/header.css);
+@import url(/css/common/footer.css);
+
+.container{
+    width: 100%;
+    height: auto;
+}
+
+.container-con{
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+    /* border: 1px solid; */
+}
+
+.container-con .memberList{
+    flex-basis: 1000px;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+    /* border: 1px solid; */
+}
+
+.container-con .memberList .memberList-con{
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* border: 1px solid; */
+    padding: 10px 0;
+    text-align: center;
+    align-items: center;
+    justify-content:space-between;
+}
+
+.container-con .memberList .memberList-con .memberList-header{
+    box-sizing: border-box;
+    width: 50%;
+    border: 1px solid purple;
+    border-radius: 4px;
+    padding: 5px 0;
+    background-color: purple;
+    color: white;
+    margin: 10px 0;
+}
+
+.container-con .memberList .memberList-con .search{
+    box-sizing: border-box;
+    width: 120%;
+    display: flex;
+    justify-content: flex-end;
+    margin: 5px;
+}
+
+.container-con .memberList .memberList-con .memberList-container{
+    box-sizing: border-box;
+    width: 120%;
+    border: 1px solid purple;
+    border-radius: 4px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+}
+
+
+.container-con .memberList .memberList-con .memberList-container table{
+    box-sizing: border-box;
+    width: 100%;
+    
+}
+
+.container-con .memberList .memberList-con .memberList-container thead .th1{
+    box-sizing: border-box;
+    width: 100%;
+    font-size: 16px;
+    font-weight: 800;
+    background-color: purple;
+    border: 1px solid purple;
+    border-radius: 5px;
+    color: white;
+}
+
+.container-con .memberList .memberList-con .memberList-container thead .th1 th{
+    padding: 5px 0;
+}
+
+.container-con .memberList .memberList-con .memberList-container thead .th2 th:not(:last-child){
+    box-sizing: border-box;
+    font-size: 14px;
+    border-right: 1px solid purple;
+}
+
+/* */
+table{
+  width:100%;
+
+}
+table,th,tr,td{
+       border-collapse: collapse;
+       border:1px solid #cccccc;
+}
+td{
+  text-align:center;
+  padding:5px 0;
+}
+
+table th{
+  background-color: rgba(137, 43, 226, 0.662);
+  color: #ffffff;
+  font-weight: bold;
+  padding:10px 5px;
+  box-sizing: border-box;
+}
+
+.memberList .memberList-con .memberList-container .paging{
+  padding:10px 0;
+  box-sizing:border-box;
+          display:flex;
+          justify-content:center;
+}
+.memberList .memberList-con .memberList-container .paging > ul{
+  flex-basis:400px;
+           display:flex;
+           justify-content:space-between;
+           gap:5px;
+           padding:5px;
+           box-sizing:border-box;
+}
+
+.memberList .memberList-con .memberList-container .paging > ul> li{
+ /* flex:1;*/
+
+}
+.memberList .memberList-con .memberList-container .paging > ul> li.block{
+    flex:1;
+    display:flex;
+    justify-content:center;
+    gap:5px;
+}
+.memberList .memberList-con .memberList-container .paging > ul> li.block a{
+   color:#000000;
+   font-weight:bold;
+   padding:0 10px;
+  display:block;
+}
+.memberList .memberList-con .memberList-container .paging > ul> li span{
+
+
+  font-size:12px;
+}
+.memberList .memberList-con .memberList-container .paging > ul> li a{
+
+  border-radius:5px;
+  font-size:12px;
+  font-weight:bold;
+}
+.memberList .memberList-con .memberList-container .paging > ul> li span.span0{
+  color:#000000;
+   padding:2px 10px;
+   border-radius:5px;
+}
+
+.memberList .memberList-con .memberList-container .paging > ul> li span a.span1{
+  padding:2px 10px;
+  color:#000000;
+}
+ span.now{
+   color:#000000;
+   font-weight:bold;
+   padding:0 10px;
+   position:relative;
+   cursor:pointer;
+ }
+ span.now::after{
+  content:'▼';
+  width:auto;
+  padding:0 10px;
+  color:#000000;
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+  top:-20px;
+  visibility:hidden;
+  transition:all 0.1s;
+ }
+span.now:hover::after{
+  visibility:visible;
+}

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/kurlylayout}"
+>
+
+
+<th:block layout:fragment="title">
+    <title>마이페이지</title>
+</th:block>
+
+<th:block layout:fragment="css">
+    <link rel="stylesheet" th:href="@{/css/mypage/orderList.css}">
+</th:block>
+
+<th:block layout:fragment="script">
+    <!--    <script th:src="@{/js/index.js}" defer ></script>-->
+    <script type="text/javascript" th:src="@{/js/mypage/orderList.js}" defer> </script>
+</th:block>
+
+<th:block layout:fragment="container">
+    <div class="container">
+        <div class="container-con">
+            <div class="customer-op">
+                <div class="sec1-title">
+                    마이컬리
+                </div>
+                <div class="sec2-op">
+                    <ul>
+                        <li>
+                            <button type="button">
+                                <a th:href="@{/}">
+                                    <ul>
+                                        <li>주문내역</li>
+                                        <li><img th:src="@{/images/arrow_r.png}" alt="이동"></li>
+                                    </ul>
+                                </a>
+                            </button>
+                        </li>
+                        <li>
+                            <button type="button">
+                                <a th:href="@{/}">
+                                    <ul>
+                                        <li>찜한상품</li>
+                                        <li><img th:src="@{/images/arrow_r.png}" alt="이동"></li>
+                                    </ul>
+                                </a>
+                            </button>
+                        </li>
+                        <li>
+                            <button type="button">
+                                <a th:href="@{/}">
+                                    <ul>
+                                        <li>상품후기</li>
+                                        <li><img th:src="@{/images/arrow_r.png}" alt="이동"></li>
+                                    </ul>
+                                </a>
+                            </button>
+                        </li>
+                        <li>
+                            <button type="button">
+                                <a th:href="@{/mypage/myUpdate}">
+                                    <ul>
+                                        <li>개인정보수정</li>
+                                        <li><img th:src="@{/images/arrow_r.png}" alt="이동"></li>
+                                    </ul>
+                                </a>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+                <div class="sec3-help">
+                    <button type="button">
+                        <a th:href="@{/}">
+                            <div class="a-sec1">
+                                <ul>
+                                    <li>
+                                        도움이 필요하신가요?
+                                    </li>
+                                    <li>
+                                        1:1문의하기
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="a-sec2">
+                                <img th:src="@{/images/arrow_r.png}" alt="이동">
+                            </div>
+                        </a>
+                    </button>
+                </div>
+            </div>
+            <div class="orderList">
+                <div class="orderList-con">
+
+                    <div class="orderList-header">
+                        <h1>주문내역</h1>
+                        <h4>주문내역을 확인하세요</h4>
+                    </div>
+
+                    <div class="orderList-container">
+                        <table>
+                            <thead>
+                                <tr class="th2">
+                                    <th>주문번호</th>
+                                    <th>제품이름</th>
+                                    <th>수량</th>
+                                    <th>주문 상태</th>
+                                    <th>주문일</th>
+                                    <th>주문 취소</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr th:each="item:${order}">
+
+                                    <td th:text="${item.id}"></td>
+
+                                    <td th:text="${item.orderItems[0].item.name}"></td>
+
+                                    <td th:text="${item.orderItems[0].count}"></td>
+
+                                    <td th:text="${item.orderStatus}"></td>
+
+                                    <td th:text="${item.createTime}"></td>
+
+                                    <td>
+                                        <button class="cancel" th:onclick="'cancel(\'' + ${item.id} + '\')'">주문 취소</button>
+                                    </td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="paging">
+                            <ul>
+                                <li>
+                                    <!--페이징 보류  -->
+<!--                                    <span th:if="${1==orderList.pageable.pageNumber+1}"></span>-->
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</th:block>
+</html>

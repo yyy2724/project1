@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/kurlylayout}"
+>
+
+
+<th:block layout:fragment="title">
+    <title>회원목록조회</title>
+</th:block>
+
+<th:block layout:fragment="css">
+    <link rel="stylesheet" th:href="@{/css/member/memberList.css}">
+</th:block>
+
+<th:block layout:fragment="script">
+    <!--    <script th:src="@{/js/index.js}" defer ></script>-->
+</th:block>
+
+<th:block layout:fragment="container">
+    <div class="container">
+        <div class="container-con">
+            <div class="memberList">
+                <div class="memberList-con">
+
+                    <div class="memberList-header">
+                        <h1>회원조회</h1>
+                    </div>
+
+                    <div class="search">
+                        <div class="search-con">
+                            <form th:action="@{/member/search}" method="get">
+                                <select name="subject" id="subject">
+                                    <option value="name">이름</option>
+                                    <option value="email">이메일</option>
+                                    <option value="phone">전화번호</option>
+                                </select>
+                                <input type="text" name="search" id="search" th:value="${param.search}">
+                                <input type="submit" value="검색">
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="memberList-container">
+                        <table>
+                            <thead>
+                            <tr class="th1">
+                                <th colspan="8">등록회원목록</th>
+                            </tr>
+                            <tr class="th2">
+                                <th>아이디</th>
+                                <th>이름</th>
+                                <th>이메일</th>
+                                <th>전화번호</th>
+                                <th>주소</th>
+                                <th>생성일</th>
+                                <th>수정일</th>
+                                <th>MENU</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="member:${memberList}">
+                                <td th:text="${member.id}"></td>
+                                <td th:text="${member.name}"></td>
+                                <td th:text="${member.email}"></td>
+                                <td th:text="${member.phone}"></td>
+                                <td th:text="${member.address.City}"></td>
+                                <td th:text="${#temporals.format(member.createTime, 'yy-MM-dd HH:mm')}"></td>
+                                <td th:text="${#temporals.format(member.updateTime, 'yy-MM-dd HH:mm')}"></td>
+                                <td>
+                                    <a th:href="@{/member/delete/{id}(id=${member.id})}">삭제</a>
+                                    <a th:href="@{/member/update/{id}(id=${member.id})}">수정</a>
+                                    <a th:href="@{/member/detail/{id}(id=${member.id})}">상세보기</a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <div class="paging">
+                            <ul>
+                                <li>
+                                    <span th:if="${1==memberList.pageable.pageNumber+1}" class="span0">처음</span>
+                                    <span th:unless="${1==memberList.pageable.pageNumber+1}">
+                                        <a th:href="@{/member/memberList(page=0)}" class="span1">처음</a>
+                                    </span>
+                                </li>
+                                <li>
+
+                                    <span th:if="${1==memberList.pageable.pageNumber+1}" class="span0">이전</span>
+                                    <span th:unless="${1==memberList.pageable.pageNumber+1}">
+                                       <a th:href="@{/member/memberList(page=${memberList.pageable.pageNumber-1})}" class="span1">이전</a>
+                                    </span>
+                                </li>
+                                <li th:each="i: ${#numbers.sequence(startPage, endPage)}" class="block">
+
+                                    <span th:if="${i == memberList.pageable.pageNumber+1}" th:text="${i}"
+                                          class="now"></span>
+
+
+                                    <a th:unless="${i == memberList.pageable.pageNumber+1}"
+                                       th:href="@{/member/memberList(page=${ i - 1})}" th:text="${i}"></a>
+
+                                </li>
+
+
+                                <li>
+                                    <span th:if="${memberList.totalPages ==memberList.pageable.pageNumber+1}"
+                                          class="span0">다음</span>
+                                    <span th:unless="${memberList.totalPages ==memberList.pageable.pageNumber+1}">
+                                        <a th:href="@{/member/memberList(page=${memberList.pageable.pageNumber+1})}" class="span1">다음</a>
+                                    </span>
+                                </li>
+                                <li>
+                                    <span th:if="${memberList.totalPages ==memberList.pageable.pageNumber+1}"
+                                          class="span0">마지막</span>
+                                    <span th:unless="${memberList.totalPages ==memberList.pageable.pageNumber+1}">
+                                        <a th:href="@{/member/memberList(page=${memberList.totalPages-1})}" class="span1">마지막</a>
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</th:block>
+</html>

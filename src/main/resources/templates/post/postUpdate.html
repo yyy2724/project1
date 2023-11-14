@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/kurlyLayout}"
+>
+<th:block layout:fragment="title">
+  <title>memberUpdate</title>
+</th:block>
+<th:block layout:fragment="css">
+  <link rel="stylesheet" th:href="@{/css/post/postUpdate.css}">
+</th:block>
+<th:block layout:fragment="javascript">
+  <!--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>-->
+  <script th:src="@{/js/update.js}" defer></script>
+</th:block>
+<th:block layout:fragment="container">
+<div class="container">
+  <div class="update">
+    <div class="update-con">
+      <div class="update-con-header">
+        <div class="sec1">
+          <h1>게시글 수정</h1>
+          <h4>컬리의 새로운 소식들과 유용한 정보들을 한곳에서 확인하세요</h4>
+        </div>
+      </div>
+      <div class="update-con-form">
+        <form th:action="@{/post/postUpdateOk}" method="post">
+          <ul>
+            <li>
+              <label th:for="id">id</label>
+              <input type="text" id="id" name="id" th:value="${post.id}" readonly >
+            </li>
+            <li>
+              <label th:for="title">title</label>
+              <input type="text" id="title" name="title" th:value="${post.title}">
+            </li>
+            <li>
+              <label th:for="content">content</label>
+              <input type="text" id="content" name="content" th:value="${post.content}">
+            </li>
+            <li>
+              <label th:for="writer">writer</label>
+              <input type="text" id="writer" name="writer" th:value="${post.writer}" readonly>
+            </li>
+            <li>
+              <label th:for="hit">hit</label>
+              <input type="text" id="hit" name="hit" th:value="${post.hit}" readonly>
+            </li>
+<!--            <input type="hidden" id="hit" name="hit" th:value="${post.hit}" readonly>-->
+
+<!--            <li>-->
+<!--              <label th:for="createTime">createTime</label>-->
+<!--              <input type="text" id="createTime" name="createTime" th:value="${post.createTime}" readonly>-->
+<!--            </li>-->
+            <li>
+              <input type="submit" value="글수정실행">
+            </li>
+          </ul>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+</th:block>
+</html>

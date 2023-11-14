@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/kurlylayout}"
+>
+
+
+<th:block layout:fragment="title">
+    <title>로그인</title>
+</th:block>
+
+<th:block layout:fragment="css">
+    <link rel="stylesheet" th:href="@{/css/member/oauth2add.css}">
+</th:block>
+
+<th:block layout:fragment="script">
+    <!--    <script th:src="@{/js/index.js}" defer ></script>-->
+</th:block>
+
+<th:block layout:fragment="container">
+    <div class="container">
+        <div class="container-con">
+            <div class="customer-op">
+                <div class="sec1-title">
+                    마이페이지
+                </div>
+                <div class="sec2-op">
+                    <ul>
+                        <li>
+                            <button type="button">
+                                <a th:href="@{/}">
+                                    <ul>
+                                        <li>주문내역</li>
+                                        <li><img th:src="@{/images/arrow_r.png}" alt="이동"></li>
+                                    </ul>
+                                </a>
+                            </button>
+                        </li>
+                        <li>
+                            <button type="button">
+                                <a th:href="@{/}">
+                                    <ul>
+                                        <li>찜한상품</li>
+                                        <li><img th:src="@{/images/arrow_r.png}" alt="이동"></li>
+                                    </ul>
+                                </a>
+                            </button>
+                        </li>
+                        <li>
+                            <button type="button">
+                                <a th:href="@{/member/oauth2add}">
+                                    <ul>
+                                        <li>배송지 관리</li>
+                                        <li><img th:src="@{/images/arrow_r.png}" alt="이동"></li>
+                                    </ul>
+                                </a>
+                            </button>
+                        </li>
+                        <li>
+                            <button type="button">
+                                <a th:href="@{/}">
+                                    <ul>
+                                        <li>상품후기</li>
+                                        <li><img th:src="@{/images/arrow_r.png}" alt="이동"></li>
+                                    </ul>
+                                </a>
+                            </button>
+                        </li>
+                        <li>
+                            <button type="button">
+                                <a th:href="@{/}">
+                                    <ul>
+                                        <li>상품문의</li>
+                                        <li><img th:src="@{/images/arrow_r.png}" alt="이동"></li>
+                                    </ul>
+                                </a>
+                            </button>
+                        </li>
+                        <li>
+                            <button type="button">
+                                <a th:href="@{/member/update/{id}(id=${member.id})}">
+                                    <ul>
+                                        <li>개인정보수정</li>
+                                        <li><img th:src="@{/images/arrow_r.png}" alt="이동"></li>
+                                    </ul>
+                                </a>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+                <div class="sec3-help">
+                    <button type="button">
+                        <a th:href="@{/}">
+                            <div class="a-sec1">
+                                <ul>
+                                    <li>
+                                        도움이 필요하신가요?
+                                    </li>
+                                    <li>
+                                        1:1문의하기
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="a-sec2">
+                                <img th:src="@{/images/arrow_r.png}" alt="이동">
+                            </div>
+                        </a>
+                    </button>
+                </div>
+            </div>
+            <div class="update">
+                <div class="update-con">
+                    <div class="update-header">
+                        <h1>추가 정보 입력</h1>
+                    </div>
+
+                    <div class="update-header2">
+                        <span>*</span>
+                        <span>필수입력사항</span>
+                    </div>
+
+
+<!--                    <div class="addressList-container">-->
+<!--                        <table>-->
+<!--                            <thead>-->
+<!--                            <tr class="th1">-->
+<!--                                <th colspan="8">현재 주소지 정보</th>-->
+<!--                            </tr>-->
+<!--                            <tr class="th2">-->
+<!--                                <th>받는 분</th>-->
+<!--                                <th>번호</th>-->
+<!--                                <th>주소</th>-->
+<!--                            </tr>-->
+<!--                            </thead>-->
+<!--                            <tbody>-->
+<!--                            <tr>-->
+<!--                                <td th:text="${member.name}"></td>-->
+<!--                                <td th:text="${member.phone}"></td>-->
+<!--                                <td th:text="${member.city}"></td>-->
+<!--                            </tr>-->
+<!--                            </tbody>-->
+<!--                        </table>-->
+<!--                    </div>-->
+
+
+                    <form th:action="@{/member/update}" method="post">
+                        <ul>
+                            <input type="hidden" th:field="*{member.id}" th:value="${member.id}" readonly class="readonly">
+<!--                            <li>-->
+<!--                                <label th:for="email">-->
+<!--                                    이메일-->
+<!--                                    <span></span>-->
+<!--                                </label>-->
+                                <input type="hidden" th:field="*{member.email}" th:value="${member.email}" readonly class="readonly">
+<!--                                <div></div>-->
+<!--                            </li>-->
+<!--                            <li>-->
+<!--                                <label th:for="password">-->
+<!--                                    비밀번호-->
+<!--                                    <span>*</span>-->
+<!--                                </label>-->
+                                <input type="hidden" th:field="*{member.password}" th:value="${member.password}" >
+<!--                                <div></div>-->
+<!--                            </li>-->
+<!--                            <li>-->
+<!--                                <label th:for="name">-->
+<!--                                    이름-->
+<!--                                    <span></span>-->
+<!--                                </label>-->
+                                <input type="hidden" th:field="*{member.name}" th:value="${member.name}" readonly class="readonly">
+<!--                                <div></div>-->
+<!--                            </li>-->
+
+                            <li>
+                                <label th:for="phone">
+                                    휴대폰
+                                    <span>*</span>
+                                </label>
+                                <input type="text" th:field="*{member.phone}" th:value="${member.phone}" >
+                                <div></div>
+                            </li>
+
+                            <li>
+                                <label th:for="city">
+                                    주소City
+                                    <span>*</span>
+                                </label>
+                                <input type="text" th:field="*{member.address.city}" th:value="${member.address.city}" >
+                                <div></div>
+                            </li>
+
+<!--                            <li>-->
+<!--                                <label th:for="street">-->
+<!--                                    주소street-->
+<!--                                    <span>*</span>-->
+<!--                                </label>-->
+<!--                                <input type="text" th:field="*{member.street}" th:value="${member.street}" >-->
+<!--                                <div></div>-->
+<!--                            </li>-->
+<!--                            <li>-->
+<!--                                <label th:for="zipcode">-->
+<!--                                    주소zipcode-->
+<!--                                    <span>*</span>-->
+<!--                                </label>-->
+<!--                                <input type="text" th:field="*{member.zipcode}" th:value="${member.zipcode}" >-->
+<!--                                <div></div>-->
+<!--                            </li>-->
+
+                        </ul>
+                        <div class="go-update">
+                            <input type="submit" value="추가하기">
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</th:block>
+</html>

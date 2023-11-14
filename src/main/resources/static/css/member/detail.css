@@ -1,0 +1,102 @@
+@import url(/css/common/reset.css);
+@import url(/css/common/header.css);
+@import url(/css/common/footer.css);
+/*detail*/
+.container {
+    width: 100%;
+}
+
+.detail {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+}
+
+.detail .detail-con {
+    flex: 1;
+    height: calc( 100vh - 110px - 230px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.detail .detail-con .detail-form {
+    flex-basis: 500px;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 1px 1px 3px #555555;
+    border-radius: 30px 30px 10px 10px;
+}
+.detail .detail-con .detail-form h1{    
+    padding: 10px 15px;
+    box-sizing: border-box;
+    background-color: #b62c7c;
+    color: #ffffff;
+    font-size: 20px;
+    text-align: center;
+}
+.detail .detail-con .detail-form form ul{
+    padding: 10px 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.detail .detail-con .detail-form form ul >li{
+  
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.detail .detail-con .detail-form form ul >li label{
+   flex:1;
+   padding:5px ;
+   box-sizing: border-box;
+}
+
+.detail .detail-con .detail-form form ul >li input{
+    flex:3;
+    padding: 5px ;
+    box-sizing: border-box;
+    border: 0;
+    border: 1px solid #cccccc;
+ }
+ .detail .detail-con .detail-form form ul >li input[type=submit]{
+  cursor: pointer;
+  background-color: rgb(255, 255, 255);
+  color: rgb(33, 33, 33);
+
+ }
+.detail .detail-con .detail-form form ul >li.show{
+        box-sizing: border-box;
+        display: flex;
+        justify-content: space-between;
+        gap: 5px;
+ }
+.detail .detail-con .detail-form form ul >li.show input{
+        flex:1;
+        background-color:#000000;
+        color:#ffffff;
+        display:block;
+        padding:5px ;
+        box-sizing:border-box;
+        text-align:center;
+ }
+ .detail .detail-con .detail-form form ul >li.show a{
+         flex:1;
+         background-color:#000000;
+         color:#ffffff;
+         display:block;
+         padding:5px ;
+         box-sizing:border-box;
+         text-align:center;
+  }
+ .error{
+    color: #ff0000;
+    font-size: 12px;
+ }
+

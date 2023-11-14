@@ -1,0 +1,235 @@
+@import url(/css/common/reset.css);
+@import url(/css/common/header.css);
+@import url(/css/common/footer.css);
+
+.container{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.container-con{
+    flex-basis: 1250px;
+    height: auto;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    /* border: 1px solid; */
+}
+
+.container-con .customer-op{
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    flex-direction: column;    
+    flex:1;
+    /* border: 1px solid; */
+}
+
+.container-con .customer-op .sec1-title{
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    padding: 30px 0;
+    font-size: 26px;
+    font-weight: bold;
+    align-items: center;
+}
+
+.container-con .customer-op .sec2-op{
+    box-sizing: border-box;
+    width: 100%;
+    border: 1px solid #cccccc;
+    margin: 0 0 30px 0;
+}
+
+.container-con .customer-op .sec2-op>ul{
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    
+}
+.container-con .customer-op .sec2-op>ul>li:nth-child(2)>button{
+    box-sizing: border-box;
+    background-color: rgb(194, 120, 194);
+    width: 100%;
+    padding: 10px;
+    border: 0px;
+    font-size: 16px;
+}
+
+.container-con .customer-op .sec2-op>ul>li>button{
+    box-sizing: border-box;
+    background-color:white;
+    width: 100%;
+    padding: 10px;
+    border: 0px;
+    font-size: 16px;
+}
+
+.container-con .customer-op .sec2-op>ul>li>button:hover{
+    box-sizing: border-box;
+    background-color: rgb(194, 120, 194);
+
+}
+
+.container-con .customer-op .sec2-op>ul>li>button:hover a{
+    box-sizing: border-box;
+    color: white;
+    
+}
+
+.container-con .customer-op .sec2-op>ul>li>button>a>ul{
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+}
+
+.container-con .customer-op .sec2-op>ul>li>button>a>ul img{
+    width: 16px;
+}
+
+.container-con .customer-op .sec3-help{
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.container-con .customer-op .sec3-help>button{
+    box-sizing: border-box;
+    width: 100%;
+    background-color: white;
+    border: 1px solid purple;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+.container-con .customer-op .sec3-help>button>a{
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+}
+
+
+.container-con .customer-op .sec3-help>button>a .a-sec1>ul{
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.container-con .customer-op .sec3-help>button>a>img{
+    box-sizing: border-box;
+    width: 16px;
+}
+
+
+
+.container-con .postList{
+    box-sizing: border-box;
+    flex: 4;
+    padding:10px;
+    /* border: 1px solid; */
+}
+
+.container-con .postList .postList-con{
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.container-con .postList .postList-con .postList-header{
+    box-sizing: border-box;
+    padding: 15px 0;
+    font-weight: bold;
+    font-size: 18px;
+    border-bottom: 1px solid black;
+}
+
+.container-con .postList .postList-con .postList-header h1{
+    box-sizing: border-box;
+    padding: 0 0 7px 0;
+    font-weight: bold;
+}
+
+.container-con .postList .postList-con .postList-header h3{
+    box-sizing: border-box;
+    padding: 0 0 5px 0;
+}
+
+.container-con .postList .postList-con .postList-header .insert{
+    box-sizing: border-box;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.container-con .postList .postList-con .postList-header .insert button{
+    box-sizing: border-box;
+    width: 100px;
+    height: 45px;
+    background-color: purple;
+    border: 1px solid purple;
+    border-radius: 4px;
+    text-align: center;
+    align-items: center;
+}
+
+.container-con .postList .postList-con .postList-header .insert a{
+    color: white;
+    padding: 5px;
+}
+
+.container-con .postList .postList-con .search{
+    box-sizing: border-box;
+    padding: 0 0 10px 0;
+    border-bottom: 1px solid black;
+}
+
+.container-con .postList .postList-con .postList-container table{
+    width: 100%;
+}
+
+.container-con .postList .postList-con .postList-container table thead{
+    box-sizing: border-box;
+    padding: 3px 0;
+    border-bottom: 1px solid black; 
+}
+
+.container-con .postList .postList-con .postList-container table thead .th2{
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 0;
+    border-bottom: 1px solid black; 
+    text-align: center;
+    align-items: center;
+}
+
+.container-con .postList .postList-con .postList-container table thead .th2 th:nth-child(1){
+    flex: 1;
+}
+
+.container-con .postList .postList-con .postList-container table thead .th2 th:nth-child(2){
+    flex: 2;
+}
+
+.container-con .postList .postList-con .postList-container table thead .th2 th:nth-child(3){
+    flex: 3;
+}
+
+.container-con .postList .postList-con .postList-container table thead .th2 th:nth-child(4){
+    flex: 3;
+}
+
+.container-con .postList .postList-con .postList-container table thead .th2 th:nth-child(5){
+    flex: 4;
+}
+
+.container-con .postList .postList-con .postList-container table thead .th2 th:nth-child(6){
+    flex: 2;
+}
+

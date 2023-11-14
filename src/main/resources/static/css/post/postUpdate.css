@@ -1,0 +1,206 @@
+@import url(/css/common/reset.css);
+@import url(/css/common/header.css);
+@import url(/css/common/footer.css);
+/*update*/
+*{box-sizing: border-box;}
+
+.update {
+    width: 100%;
+    height: auto;
+    /* border: 1px solid; */
+    display: flex;
+    justify-content: center;
+
+}
+
+.update .update-con{
+    flex-basis: 1050px;
+    /* border: 1px solid; */
+    display: flex;
+    flex-direction: column;
+}
+
+.update .update-con .update-con-header{
+    display: flex;
+    justify-content: center;
+    border-bottom: 2px solid;
+}
+
+.update .update-con .update-con-header .sec1{
+    padding: 30px;
+    text-align: center;
+
+}
+
+.update .update-con .update-con-header .sec1 h1{
+    color: #333333;
+    font-size: 20px;
+}
+
+.update .update-con .update-con-header .sec1 h4{
+    color: #999999;
+    padding: 5px 0 0 0;
+}
+
+/* form */
+.update-con-form{
+    width: 100%;
+}
+
+.update-con-form li:nth-child(5) input{
+    height: 50px   ;
+}
+
+.update-con-form form>ul{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 2px solid;
+    padding: 0 0 10px 0;
+}
+
+.update-con-form form>ul>li{
+    display: flex;
+    justify-content: flex-start;
+}
+
+.update-con-form form>ul>li label{
+    flex: 1;
+    background-color: #F7F5F8;
+    font-weight: 800;
+    padding: 5px;
+}
+
+.update-con-form form>ul>li input{
+    flex: 7;
+    border: 0;
+}
+
+/* .update-con-form form>ul>li:nth-child(1) label{
+    flex: 1;
+    background-color: #F7F5F8;
+    font-weight: 800;
+    padding: 5px;
+}
+
+.update-con-form form>ul>li:nth-child(1) input{
+    flex: 7;
+    border: 0;
+}
+
+.update-con-form form>ul>li:nth-child(2) label{
+    flex: 1;
+    background-color: #F7F5F8;
+    font-weight: 800;
+    padding: 5px;
+}
+
+.update-con-form form>ul>li:nth-child(2) input{
+    flex: 7;
+    border: 0;
+}
+
+.update-con-form form>ul>li:nth-child(3) label{
+    flex: 1;
+    background-color: #F7F5F8;
+    font-weight: 800;
+    padding: 5px;
+}
+
+.update-con-form form>ul>li:nth-child(3) input{
+    flex: 7;
+    border: 0;
+}
+
+.update-con-form form>ul>li:nth-child(4) label{
+    flex: 1;
+    background-color: #F7F5F8;
+    font-weight: 800;
+    padding: 5px;
+}
+
+.update-con-form form>ul>li:nth-child(4) input{
+    flex: 7;
+    border: 0;
+} */
+
+.update-con-form form .sec2{
+    padding: 25px;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.update-con-form form .sec2 button{
+    width: 150px;
+    height: 45px;
+    text-align: center;
+    align-items: center;
+    background-color: purple;
+    border: 1px solid purple;
+    border-radius: 4px;
+}
+
+.update-con-form form .sec2 button a{
+    color: white;
+}
+
+
+
+
+
+
+
+
+
+
+.update .update-con .reply-con{
+    /*display: flex;*/
+    align-items: center;
+    /*justify-content: center;*/
+    flex-basis: 400px;
+}
+
+.update .update-con .reply-con .reply-list{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px 10px;
+}
+
+.update .update-con .reply-con .reply-list table tr{
+    /*display: flex;*/
+    padding: 10px 5px;
+    /*background-color: #F7F5F8;*/
+}
+.update .update-con .reply-con .reply-list table tr th{
+    padding: 15px 10px;
+    background-color: #F7F5F8;
+}
+
+.update .update-con .reply-con .reply-list table tr th:nth-child(2){
+
+    min-width: 400px;
+}
+
+
+.update .update-con .reply-con .reply-list table tr td{
+    text-align: center;
+    padding: 10px 5px;
+
+}
+
+.update .update-con .reply-con .reply-write input{
+    width: 150px;
+    height: 45px;
+    text-align: center;
+    align-items: center;
+    background-color: purple;
+    border: 1px solid purple;
+    color: white;
+    border-radius: 4px;
+    margin: 10px 0 80px 0;
+}
+
+

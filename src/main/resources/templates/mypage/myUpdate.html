@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/kurlylayout}"
+>
+
+
+<th:block layout:fragment="title">
+    <title>개인정보수정</title>
+</th:block>
+
+<th:block layout:fragment="css">
+    <link rel="stylesheet" th:href="@{/css/mypage/myUpdate.css}">
+</th:block>
+
+<th:block layout:fragment="script">
+    <script th:src="@{/js/mypage/myUpdate.js}" defer ></script>
+</th:block>
+
+<th:block layout:fragment="container">
+    <div class="container">
+        <div class="container-con">
+            <div class="myUpdate">
+                <div class="myUpdate-con">
+                    <div class="myUpdate-header">
+                        <h1>개인정보수정</h1>
+                    </div>
+                    
+                    <div class="myUpdate-header2">
+                    </div>
+                        <ul>
+                            <li>
+                                <label th:for="member_id">회원번호</label>
+                                <!-- input에 th:value="${member.id}" 추가 필수                                -->
+                                <input type="text" name="member_id" id="member_id" readonly>
+                            </li>
+                            <li>
+                                <label th:for="member_email">이메일</label>
+                                <!-- input에 th:value="${member.email}" 추가 필수                                -->
+                                <input type="email" name="member_email"  id="member_email" readonly>
+                            </li>
+                            <li>
+                                <label th:for="member_pw">새 비밀번호</label>
+                                <!-- input에 th:value="${member.pw}" 추가 필수                                -->
+                                <input type="password" name="member_pw" id="member_pw" placeholder=" 비밀번호를 입력해주세요">    
+                                
+                            </li>
+                            
+                            <li>
+                                <label for="member_phone">전화번호</label>
+                                <!-- input에 th:value="${member.phone}" 추가 필수                                -->
+                                <input type="text" name="member_phone"  id="member_phone" placeholder=" 숫자만 입력해 주세요">
+                                
+                            </li>
+                            <li>
+                                <label for="member_address">
+                                    주소
+                                </label>
+                                <!-- input에 th:value="${member.address}" 추가 필수                                -->
+                                <input type="text" name="member_address"  id="member_address" placeholder=" 변경된 주소를입력해 주세요">
+                                
+                            </li>
+                        </ul>
+                        <div class="go-myUpdate">
+                            <div>
+                                <button type="button" id="deleteBtn">
+                                    <a th:href="@{/}">회원 탈퇴</a>
+                                </button>
+                                <button type="button" id="updateBtn">회원 수정</button>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</th:block>
+</html>

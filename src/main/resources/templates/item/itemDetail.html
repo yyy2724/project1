@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/kurlylayout}"
+>
+
+
+<th:block layout:fragment="title">
+    <title>상품상세정보</title>
+</th:block>
+
+<th:block layout:fragment="css">
+    <link rel="stylesheet" th:href="@{/css/item/itemDetail.css}">
+</th:block>
+
+<th:block layout:fragment="script">
+    <script th:src="@{/js/reply/ajaxReply.js}" defer></script>
+    <script th:src="@{/js/item/itemDetail.js}" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+</th:block>
+
+<th:block layout:fragment="container">
+    <div class="container">
+        <div class="container-con">
+            <div class="detail">
+                <div class="detail-con">
+                    <div class="detail-header">
+                        <div class="sechead">
+                            <h1>상품상세정보</h1>
+                        </div>
+                    </div>
+
+                    <div class="detail-container">
+
+                        <div class="left">
+                            <!-- <img th:src="${item.isFile}" alt="상품이미지"> -->
+                            <img th:src="@{http://placehold.it/200x300}" alt="대체이미지">
+                            <div class="left-bottom">
+                                <div class="update">
+                                    <button th:src="@{/}">수정</button>
+                                </div>
+                                <div class="delete">
+                                    <button th:src="@{/}">삭제</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="right">
+                            <div class="sec1">
+                                <span>샛별배송</span>
+                            </div>
+                            <div class="sec2">
+                                <h1 th:text="${item.name}"></h1>
+                                <!--                                <h1>상품명</h1>-->
+                            </div>
+                            <div class="sec3">
+                                <span th:text="${item.price}" id="itemPrice"></span>
+                                <!--                                <span class="one">10000</span>-->
+                            </div>
+                            <div class="sec4">
+                                <ul>
+                                    <li>
+                                        <span>카테고리</span>
+                                        <!-- <p th:text="${item.category}"></p> -->
+                                        <p>MEN TOP</p>
+                                    </li>
+                                    <li>
+                                        <span>배송</span>
+                                        <p>
+                                            샛별배송</br>
+                                            23시 전 주문 시 내일 아침 7시 전 도착
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <span>판매자</span>
+                                        <p>2조</p>
+                                    </li>
+                                    <li>
+                                        <span>상품개수선택</span>
+                                        <div class="select2">
+                                            <button type="button" class="plusBtn" id="increaseQuantity">▲</button>
+                                            <input type="text" id="quantity" class="sizeUp" value="1">
+                                            <button type="button" class="minusBtn" id="decreaseQuantity">▼</button>
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <span>합계금액</span>
+                                        <div class="sum" id="totalPrice"></div>
+                                    </li>
+                                    <input type="hidden" id="item_id" th:value="${item.id}" />
+                                    <button class="cart_btn" onclick="addToCart()">장바구니 담기</button>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="detail-reply">
+
+                        <div class="reply-con">
+                            <div class="reply-header">
+                                <h2>상품 댓글</h2>
+                            </div>
+                            <div class="reply-list">
+                                <!-- 덧글리스트 -->
+                                <table>
+                                    <tr>
+                                        <th>번호</th>
+                                        <th>내용</th>
+                                        <th>작성자</th>
+                                        <th>작성일</th>
+                                    </tr>
+
+                                    <tbody id="tData">
+                                    <!-- 주석해제후 사용하기 -->
+                                    <!--                                    <tr th:each="reply: ${replyList}">-->
+                                    <!--                                        <td th:text="${reply.id}"></td>-->
+                                    <!--                                        <td th:text="${reply.replyWriter}"></td>-->
+                                    <!--                                        <td th:text="${reply.replyContent}"></td>-->
+                                    <!--                                        <td th:text="${#temporals.format(reply.createTime, 'yyyy-MM-dd HH:mm:ss')}"></td>-->
+                                    <!--                                    </tr>-->
+                                    </tbody>
+
+                                </table>
+                            </div>
+
+                            <div class="reply-write">
+                                <h3>댓글작성</h3>
+                                <!-- 덧글 작성 -->
+
+                                <form th:action="@{/}" method="post">
+                                    <!--                                <input type="hidden" readonly name="boardId" th:value="${board.id}" id="boardId">-->
+                                    <input type="hidden" readonly name="boardId" id="boardId">
+                                    <ul>
+                                        <li>
+                                            <textarea name="replyContent"
+                                                      style="width: 707px; height: 40px; resize: none; padding: 5px 0;"
+                                                      id="replyContent"
+                                                      placeholder=" 내용작성">
+                                            </textarea>
+                                        </li>
+                                        <li>
+                                            <input type="text" name="replyWriter" id="replyWriter"
+                                                   style="width: 80px; height: 25px; "
+                                                   placeholder=" 작성자">
+                                            <input type="button" style="width: 80px; height: 25px; " value="완료"
+                                                   id="ajaxBtn">
+                                        </li>
+                                    </ul>
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</th:block>
+</html>

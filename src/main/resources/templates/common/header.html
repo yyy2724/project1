@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<div class="header" th:fragment="headerFragment">
+    <div class="header-con">
+        <div class="top-header">
+            <ul>
+                <th:block sec:authorize="hasAnyRole('ADMIN')">
+                    <li>
+                        <a th:href="@{/member/memberList}">회원목록</a>
+                    </li>
+                </th:block>
+                <th:block sec:authorize="hasAnyRole('USER','OAUTH')">
+                    <li><a th:href="@{/member/update/{id}(id=${#authentication.principal.member.id})}">마이페이지</a></li>
+                </th:block>
+                <li sec:authorize="isAnonymous()"><a th:href="@{/member/join}">회원가입</a></li>
+                <li sec:authorize="isAnonymous()"><a th:href="@{/member/login}">로그인</a></li>
+                <li sec:authorize="hasAnyRole('ADMIN','SELLER','USER','OAUTH')">
+                    <a th:href="@{/member/detail/{id}(id=${#authentication.principal.member.id})}" class="userid">
+                        <span th:text="${#authentication.principal.username}+' 님 ▼'"></span>
+                    </a>
+                    <ul class="member-bar">
+                        <th:block sec:authorize="hasAnyRole('ADMIN')">
+                            <li>
+                                <!--                                <a th:href="@{/admin/adminPage_item}">상품관리</a>-->
+                                <a th:href="@{/orders}">상품관리</a>
+                            </li>
+                            <li>
+                                <a th:href="@{/admin/adminPage_member}">회원관리</a>
+                                <!--                                <a th:href="@{/member/memberList}">회원관리</a>-->
+                            </li>
+                            <li>
+                                <!--                                <a th:href="@{/admin/adminPage_post}">게시글관리</a>-->
+                                <a th:href="@{/post/postList}">게시글관리ok</a>
+                            </li>
+                        </th:block>
+                        <!--                        <th:block sec:authorize="hasAnyRole('USER','OAUTH')">-->
+                        <th:block sec:authorize="hasAnyRole('USER','OAUTH','ADMIN')">
+                            <li>
+                                <a th:href="@{/order/{id}(id=${#authentication.principal.member.id})}">주문내역ok</a>
+                            </li>
+
+                            <li>
+                                <!--                                <a th:href="@{carts/{memberId}(memberId=${#authentication.principal.member.id})}">장바구니no</a>-->
+                                <a th:href="@{/cart/cart}">장바구니</a>
+                            </li>
+
+                            <!--                            <li>-->
+                            <!--                                <a th:href="@{/}">상품후기</a>-->
+                            <!--                            </li>-->
+                            <!--                            <li>-->
+                            <!--                                <a th:href="@{/}">상품문의</a>-->
+                            <!--                            </li>-->
+                            <!--                        <li>-->
+                            <!--                            <a th:href="@{/member/memberList}">testList</a>-->
+                            <!--                        </li>-->
+
+                            <li>
+                                <a th:href="@{/member/oauth2add}">배송지관리</a>
+                            </li>
+
+                        </th:block>
+
+                        <li>
+                            <a th:href="@{/member/update/{id}(id=${#authentication.principal.member.id})}">개인정보수정</a>
+                        </li>
+
+                        <!--                        <li>-->
+                        <!--                            <a th:href="@{/member/userdata}">접속회원정보</a>-->
+                        <!--                        </li>-->
+                        <li>
+                            <a th:href="@{/member/logout}">로그아웃</a>
+                        </li>
+
+                    </ul>
+                </li>
+                <li><a th:href="@{/post}">고객센터</a></li>
+            </ul>
+        </div>
+
+        <div class="middle-header">
+            <div class="left">
+                <ul>
+                    <li><a th:href="@{/}"><img th:src="@{/images/kurlylogo.jpg}" alt="logo"></a></li>
+                    <li><a th:href="@{/}">마켓컬리</a></li>
+                    <li><a th:href="@{/}">뷰티컬리</a></li>
+                </ul>
+            </div>
+
+            <div class="middle">
+                <form th:action="@{/}" method="post">
+                    <input type="text" name="search" id="search" placeholder="검색어를 입력해주세요">
+                    <button type="submit" name="search_btn" id="search_btn"><img th:src="@{/images/search.png}"
+                                                                                 alt="검색"></button>
+                </form>
+            </div>
+
+            <div class="right">
+                <ul>
+                    <li>
+                        <th:block sec:authorize="hasAnyRole('USER','OAUTH','ADMIN')">
+                        <a th:href="@{/member/oauth2add}"><img th:src="@{/images/location.png}" alt="지도"></a>
+                    </th:block>
+
+                    </li>
+
+                    <!--                            <div class="address-bar">-->
+                    <!--                            <span>배송지를 등록하고</span> <br>-->
+                    <!--                                <span>구매가능한 상품을 확인하세요.</span>-->
+                    <!--                            <button><a th:href="@{/member/oauth2add}"></a>로그인</button>-->
+                    <!--                            <button><a th:href="@{/member/oauth2add}"></a>주소 검색</button>-->
+                    <!--                            <button><a th:href="@{/member/oauth2add}"></a>배송지 변경</button>-->
+                    <!--                            </div>-->
+
+                    <li><a th:href="@{/}"><img th:src="@{/images/search.png}" alt="검색"></a></li>
+                    <li>
+<!--                        <a th:href="@{carts/{memberId}(memberId=${#authentication.principal.member.id})}">-->
+                        <a th:href="@{/cart/cart}">
+                            <img th:src="@{/images/cart.png}" alt="장바구니"></a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="bottom-header">
+            <div class="bottom-left">
+                <div class="category-sec1">
+                    <span><img th:src="@{/images/categoryList.png}" alt="카테고리아이콘">카테고리</span>
+                    <div class="category">
+                        <a th:href="@{/}">MEN TOP</a>
+                        <a th:href="@{/}">MEN BOTTOM</a>
+                        <a th:href="@{/}">WOMEN TOP</a>
+                        <a th:href="@{/}">WOMEN BOTTOM</a>
+                        <a th:href="@{/}">ACC</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bottom-middle">
+                <ul>
+                    <li><a th:href="@{/itemList}">신상품</a></li>
+                    <li><a th:href="@{/}">베스트</a></li>
+                    <li><a th:href="@{/}">알뜰쇼핑</a></li>
+                    <li><a th:href="@{/}">특가/혜택</a></li>
+                </ul>
+            </div>
+
+            <div class="bottom-right">
+                <a th:href="@{/}">
+                    <div class="inner">
+                        <span>샛별・택배 </span>
+                        <span>배송안내</span>
+                    </div>
+                </a>
+            </div>
+
+
+        </div>
+
+    </div>
+</div>
+</html>
