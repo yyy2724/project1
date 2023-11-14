@@ -24,6 +24,32 @@
 <a href="https://github.com/yyy2724"><img src="https://github.com/yyy2724.png" width="150px;" alt=""/>
 <br /><sub><b>BE : 김양현</b></sub></a><br />
     </tr>
+</tbody>
+</table>
 
 
+### 김양현
+<details>
+<summary>게시판 CRUD</summary>
+<br/><br/>
 
+![img.png](img.png)
+
+글 작성
+<br/><br/>
+
+![img_1.png](img_1.png)
+
+글 수정
+<br/><br/>
+
+![img_2.png](img_2.png)
+
+글 리스트( paging, 및 search)
+<br/><br/>
+
+![img_3.png](img_3.png)
+삭제 및 댓글
+<br/><br/>
+
+</details>
